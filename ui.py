@@ -12,7 +12,7 @@ st.set_page_config(
 
 # This should point to your running FastAPI application
 # Use an environment variable for the API URL in production
-API_URL = os.getenv("API_URL", "http://localhost:8000/decide/churn")
+API_URL = os.getenv("API_URL", "http://localhost:8000/decide/churn/")
 
 # --- UI Components ---
 st.title("🤖 Customer Churn Decision Platform")

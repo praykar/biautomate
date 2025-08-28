@@ -94,7 +94,7 @@ def make_churn_decision(probability: float) -> tuple[RecommendedAction, Confiden
     return (RecommendedAction.NO_ACTION, ConfidenceLevel.LOW)
 
 # --- API Endpoint ---
-@app.post("/decide/churn", response_model=DecisionResponse)
+@app.post("/decide/churn/", response_model=DecisionResponse)
 async def decide(payload: FeaturePayload):
     """Accepts customer features, gets a prediction, and returns a decision."""
     try:
