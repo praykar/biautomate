@@ -93,7 +93,13 @@ def make_churn_decision(probability: float) -> tuple[RecommendedAction, Confiden
         return (rule["action"], rule["confidence"])
     return (RecommendedAction.NO_ACTION, ConfidenceLevel.LOW)
 
-# --- API Endpoint ---
+# --- API Endpoints ---
+@app.get("/", include_in_schema=False)
+async def root():
+    """A simple root endpoint to confirm the API is running."""
+    return {"message": "Decision Engine is running. Navigate to /docs for API documentation."}
+
+
 @app.post("/decide/churn/", response_model=DecisionResponse)
 async def decide(payload: FeaturePayload):
     """Accepts customer features, gets a prediction, and returns a decision."""
